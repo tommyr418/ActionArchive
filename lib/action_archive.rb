@@ -33,6 +33,11 @@ class ActionArchive
     @table_name ||= self.to_s.tableize
   end
 
+  def self.inherited(subclass)
+    subclass.table_name = 'humans' if subclass.name == "Human"
+    subclass.finalize!
+  end
+
   def self.all
     all_data = DBConnection.execute(<<-SQL)
       SELECT
