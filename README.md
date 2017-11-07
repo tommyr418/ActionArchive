@@ -1,6 +1,6 @@
 # Action Archive - Object Relational Mapping for Ruby
 
-Action Archive is a light-weight ORM for the Ruby programming language, inspired by Active Record, that allows for simple querying of databases through easy to use methods defined on a master class. When the master class is subclassed, it provides all of the functionality through class inheritance and meta-programming. Action Archive heavily depends on naming conventions that that will take much of the work away from a user as long as he or she adheres to the rules.
+Action Archive is a light-weight ORM for the Ruby programming language that allows for simple querying of databases through easy to use methods defined on a master class. When the master class is subclassed, it provides all of the functionality through class inheritance and meta-programming. Action Archive heavily depends on naming conventions that that will take much of the work away from a user as long as he or she adheres to the rules.
 
 ## Features
 
@@ -19,6 +19,10 @@ Action Archive is a light-weight ORM for the Ruby programming language, inspired
 + Quickly extract full tables
 
         Cat.all
+
++ Quickly find by id
+
+        Cat.find(1)
 
 + Specify specific pieces of data
 
