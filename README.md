@@ -6,20 +6,20 @@ Action Archive is a light-weight ORM for the Ruby programming language, inspired
 
 + Automatic mapping between classes and attributes to tables and columns
 
-    class Cat < ActionArchive
-    end
+        class Cat < ActionArchive
+        end
 
 
 + Associations can be made between objects through simple methods
 
-    class Cat < ActionArchive
-      belongs_to :human, foreign_key: :owner_id
-    end
+        class Cat < ActionArchive
+          belongs_to :human, foreign_key: :owner_id
+        end
 
 + Quickly extract full tables
 
-    Cat.all
+        Cat.all
 
 + Specify specific pieces of data
 
-    Cat.where(name: "Breakfast")
+        Cat.where(name: "Breakfast")
