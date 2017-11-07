@@ -1,4 +1,5 @@
-require '03_associatable'
+require 'associatable'
+require 'action_archive'
 
 describe 'AssocOptions' do
   describe 'BelongsToOptions' do
@@ -47,11 +48,11 @@ describe 'AssocOptions' do
 
   describe 'AssocOptions' do
     before(:all) do
-      class Cat < SQLObject
+      class Cat < ActionArchive
         self.finalize!
       end
 
-      class Human < SQLObject
+      class Human < ActionArchive
         self.table_name = 'humans'
 
         self.finalize!
@@ -65,7 +66,7 @@ describe 'AssocOptions' do
       options = HasManyOptions.new('cats', 'Human')
       expect(options.model_class).to eq(Cat)
     end
-    
+
     it '#table_name returns table name of associated object' do
       options = BelongsToOptions.new('human')
       expect(options.table_name).to eq('humans')
@@ -81,13 +82,13 @@ describe 'Associatable' do
   after(:each) { DBConnection.reset }
 
   before(:all) do
-    class Cat < SQLObject
+    class Cat < ActionArchive
       belongs_to :human, foreign_key: :owner_id
 
       finalize!
     end
 
-    class Human < SQLObject
+    class Human < ActionArchive
       self.table_name = 'humans'
 
       has_many :cats, foreign_key: :owner_id
@@ -96,7 +97,7 @@ describe 'Associatable' do
       finalize!
     end
 
-    class House < SQLObject
+    class House < ActionArchive
       has_many :humans
 
       finalize!

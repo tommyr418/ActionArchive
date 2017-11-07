@@ -1,17 +1,18 @@
-require '04_associatable2'
+require 'associatable'
+require 'action_archive'
 
 describe 'Associatable' do
   before(:each) { DBConnection.reset }
   after(:each) { DBConnection.reset }
 
   before(:all) do
-    class Cat < SQLObject
+    class Cat < ActionArchive
       belongs_to :human, foreign_key: :owner_id
 
       finalize!
     end
 
-    class Human < SQLObject
+    class Human < ActionArchive
       self.table_name = 'humans'
 
       has_many :cats, foreign_key: :owner_id
@@ -20,7 +21,7 @@ describe 'Associatable' do
       finalize!
     end
 
-    class House < SQLObject
+    class House < ActionArchive
       has_many :humans
 
       finalize!
@@ -29,7 +30,7 @@ describe 'Associatable' do
 
   describe '::assoc_options' do
     it 'defaults to empty hash' do
-      class TempClass < SQLObject
+      class TempClass < ActionArchive
       end
 
       expect(TempClass.assoc_options).to eq({})

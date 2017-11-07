@@ -1,15 +1,16 @@
-require '02_searchable'
+require 'searchable'
+require 'action_archive'
 
 describe 'Searchable' do
   before(:each) { DBConnection.reset }
   after(:each) { DBConnection.reset }
 
   before(:all) do
-    class Cat < SQLObject
+    class Cat < ActionArchive
       finalize!
     end
 
-    class Human < SQLObject
+    class Human < ActionArchive
       self.table_name = 'humans'
 
       finalize!
