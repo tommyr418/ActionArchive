@@ -5,4 +5,5 @@ class Human < ActionArchive
   self.finalize!
 
   has_many :cats, foreign_key: :owner_id
+  belongs_to :house
 end
