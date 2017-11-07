@@ -15,7 +15,7 @@ class ActionArchive
         #{table_name}
     SQL
 
-    @col_data[0].map { |c_name| c_name.to_sym }
+    @col_data[0].map(&:to_sym)
   end
 
   def self.finalize!
