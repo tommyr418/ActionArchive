@@ -27,3 +27,8 @@ Action Archive is a light-weight ORM for the Ruby programming language that allo
 + Specify specific pieces of data
 
         Cat.where(name: "Breakfast")
+
+## Test it out!
+
+Run `pry -r './test.rb'` to access a console where you can interact with the database.
+House, Human, and Cat ActiveArchive are available for testing
