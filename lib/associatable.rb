@@ -43,7 +43,7 @@ module Associatable
         FROM
           #{self.class.table_name}
         JOIN
-          #{options.table_name} ON #{options.foreign_key} = #{self.class.table_name}.id
+          #{options.table_name} ON #{options.foreign_key} = #{options.table_name}.id
         WHERE
           #{self.class.table_name}.id = ?
       SQL
